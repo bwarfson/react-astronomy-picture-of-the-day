@@ -1,32 +1,109 @@
-.App {
-  text-align: center;
+/* Simple dashboard grid CSS */
+
+/* Assign grid instructions to our parent grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas:
+    "sidenav header"
+    "sidenav main"
+    "sidenav footer";
+  height: 100vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+/* Give every child element its grid name */
+.header {
+  grid-area: header;
+  background-color: #648ca6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidenav {
+  grid-area: sidenav;
+  background-color: #394263;
+}
+
+.main {
+  grid-area: main;
+  background-color: #8fd4d9;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #648ca6;
+}
+
+/* header and footer */
+.header, .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #648ca6;
+}
+
+/* sidenav */
+.sidenav {
+  display: flex; /* Will be hidden on mobile */
+  flex-direction: column;
+  grid-area: sidenav;
+  background-color: #394263;
+}
+.sidenav__list {
+  padding: 0;
+  margin-top: 85px;
+  list-style-type: none;
+}
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  color: #ddd;
+}
+.sidenav__list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+/* main-header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 20px;
+  height: 75px; /* Force our height since we don't have actual content yet */
+  background-color: #e3e4e6;
+  color: slategray;
+}
+
+.main-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr)); /* Where the magic happens */
+  grid-auto-rows: 94px;
+  grid-gap: 30px;
+  margin: 20px;
+}
+
+.overviewcard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #d3d3;
+}
+
+
+.main-cards {
+  display: grid;
+  margin: 20px;
+}
+
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  width: 100%;
+  background-color: #82bef6;
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid;
+  padding: 24px;
+  box-sizing: border-box;
 }
